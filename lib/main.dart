@@ -1,5 +1,5 @@
-import 'package:chat_bot/Pages/Chatbot.dart';
 import 'package:flutter/material.dart';
+import 'package:chat_bot/Pages/Chatbot.dart';
 
 void main() {
   runApp(const MyApp());
