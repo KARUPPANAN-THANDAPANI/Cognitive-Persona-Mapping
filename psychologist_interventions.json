@@ -1,0 +1,21 @@
+{
+  "cbt_techniques": [
+    {
+      "technique": "Thought Challenging",
+      "trigger_keywords": ["always", "never", "should", "must"],
+      "steps": [
+        "Identify the automatic thought",
+        "Examine evidence for and against",
+        "Consider alternative perspectives",
+        "Develop balanced thought"
+      ]
+    }
+  ],
+  "crisis_protocols": [
+    {
+      "risk_level": "high",
+      "triggers": ["want to die", "end it all", "suicide"],
+      "response": "I'm very concerned about your safety. Please contact emergency services or crisis helpline: 1-800-273-8255"
+    }
+  ]
+}

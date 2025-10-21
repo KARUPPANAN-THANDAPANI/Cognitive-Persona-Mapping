@@ -1,0 +1,9 @@
+input_text,response_text,category,emotional_tone
+"I'm feeling stressed","Take a deep breath. You've overcome every challenge in your life so far.","comfort","calming"
+"I'm overwhelmed","Progress is progress, no matter how small. Celebrate your wins!","encouragement","supportive"
+"I'm having a bad day","It's okay to have bad days. They don't define you.","validation","empathetic"
+"I feel anxious","I hear that anxiety. Let's try some box breathing together.","technique","guided"
+"I'm so tired","Your body might be asking for rest. Even 5 minutes of quiet can help recharge.","care","nurturing"
+"I feel lonely","Thank you for sharing that. I'm here with you right now.","connection","present"
+"I can't stop worrying","Worry thoughts can be persistent. Let's try naming 3 things you can see around you.","grounding","practical"
+"I'm angry","Anger is a valid emotion. Would you like to try some physical release?","validation","accepting"
