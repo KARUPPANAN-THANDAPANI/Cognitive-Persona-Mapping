@@ -37,4 +37,33 @@ class SentimentDetector {
     // Default
     return 'neutral';
   }
+
+  // NEW: Color mappings for moods
+  static final Map<String, int> _moodColors = {
+    'happy': 0xFF4CAF50,     // Green - growth, positivity
+    'sad': 0xFF2196F3,       // Blue - calm, soothing
+    'angry': 0xFFF44336,     // Red - intensity, passion  
+    'stressed': 0xFFFF9800,  // Orange - warmth, energy
+    'neutral': 0xFF9E9E9E,   // Grey - balance
+  };
+
+  // NEW: Get color for a specific mood
+  static int getColorForMood(String mood) {
+    return _moodColors[mood] ?? 0xFF000000; // Default black
+  }
+
+  // NEW: Detect mood and return with color information
+  static Map<String, dynamic> detectMoodWithColor(String text) {
+    final mood = detectMood(text); // Uses original method
+    return {
+      'mood': mood,
+      'color': getColorForMood(mood),
+      'text': text,
+    };
+  }
+
+  // NEW: Get all available mood colors
+  static Map<String, int> getMoodColors() {
+    return Map.from(_moodColors); // Return a copy
+  }
 }
