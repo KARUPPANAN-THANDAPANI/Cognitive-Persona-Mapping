@@ -1,0 +1,65 @@
+{
+  "conversation_history": [
+    {
+      "timestamp": "2025-10-19T13:48:32.609501",
+      "user_message": "Hi, I'm feeling a bit anxious today",
+      "bot_response": "That worry sounds really intense. Would grounding techniques help right now?",
+      "emotion": "anxious",
+      "intensity": "medium",
+      "safety_level": "SAFE"
+    },
+    {
+      "timestamp": "2025-10-19T13:48:32.615795",
+      "user_message": "I have a big work presentation coming up",
+      "bot_response": "It's okay to have bad days. They don't define you.",
+      "emotion": "neutral",
+      "intensity": "medium",
+      "safety_level": "SAFE"
+    },
+    {
+      "timestamp": "2025-10-19T13:48:32.623430",
+      "user_message": "I'm worried I'll mess it up and everyone will judge me",
+      "bot_response": "Anxiety is tough. Let's break this down into smaller, manageable pieces.",
+      "emotion": "anxious",
+      "intensity": "high",
+      "safety_level": "SAFE"
+    },
+    {
+      "timestamp": "2025-10-19T13:48:32.628112",
+      "user_message": "I should be more confident but I always doubt myself",
+      "bot_response": "It's okay to have bad days. They don't define you.",
+      "emotion": "neutral",
+      "intensity": "medium",
+      "safety_level": "SAFE"
+    },
+    {
+      "timestamp": "2025-10-19T13:48:32.632806",
+      "user_message": "What if I fail and lose my job?",
+      "bot_response": "It's okay to have bad days. They don't define you.",
+      "emotion": "neutral",
+      "intensity": "medium",
+      "safety_level": "SAFE"
+    },
+    {
+      "timestamp": "2025-10-19T13:48:32.634354",
+      "user_message": "I feel like I'm not good enough for this position",
+      "bot_response": "It's wonderful to hear you're feeling good! Celebrate these moments.",
+      "emotion": "happy",
+      "intensity": "medium",
+      "safety_level": "SAFE"
+    }
+  ],
+  "user_profile": {
+    "frequent_emotions": {
+      "anxious": 2,
+      "neutral": 3,
+      "happy": 1
+    },
+    "common_topics": {
+      "work": 2
+    },
+    "trust_level": 12,
+    "session_count": 0
+  },
+  "exported_at": "2025-10-19T13:48:32.638795"
+}
