@@ -15,6 +15,12 @@ class _SentimentDemoScreenState extends State<SentimentDemoScreen> {
   String _detectedMood = '';
   List<dynamic> _filteredTips = [];
 
+  // Color constants for better maintainability
+  static const Color _primaryTextColor = Colors.black87;
+  static const Color _moodTextColor = Colors.blue; // Color for mood display
+  static const Color _tipTextColor = Colors.black54;
+  static const Color _emptyStateTextColor = Colors.grey;
+
   void _analyzeAndGetTips() {
     final text = _textController.text;
     if (text.isEmpty) return;
@@ -34,7 +40,18 @@ class _SentimentDemoScreenState extends State<SentimentDemoScreen> {
       _filteredTips = tips;
     });
   }
-  
+
+  // Get dynamic color based on mood
+  Color _getMoodColor(String mood) {
+    final moodColors = {
+      'happy': Colors.green,
+      'sad': Colors.blue,
+      'angry': Colors.red,
+      'stressed': Colors.orange,
+      'neutral': Colors.grey,
+    };
+    return moodColors[mood] ?? Colors.blue;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,31 +76,44 @@ class _SentimentDemoScreenState extends State<SentimentDemoScreen> {
             const SizedBox(height: 16),
             if (_detectedMood.isNotEmpty)
               Text('Detected Mood: $_detectedMood', 
-                   style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                   style: TextStyle(
+                     fontSize: 18, 
+                     fontWeight: FontWeight.bold,
+                     color: _getMoodColor(_detectedMood), // Dynamic color based on mood
+                   )),
             const SizedBox(height: 16),
             if (_detectedMood.isNotEmpty)
-  Column(
-    children: [
-      Text('Detected Mood: $_detectedMood', 
-           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-      SizedBox(height: 10),
-      ElevatedButton(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => MotivationalTipsScreen(mood: _detectedMood),
-            ),
-          );
-        },
-        child: Text('See More Tips for $_detectedMood'),
-      ),
-      SizedBox(height: 16),
-    ],
-  ),
+              Column(
+                children: [
+                  Text('Detected Mood: $_detectedMood', 
+                       style: TextStyle(
+                         fontSize: 18, 
+                         fontWeight: FontWeight.bold,
+                         color: _getMoodColor(_detectedMood), // Dynamic color based on mood
+                       )),
+                  const SizedBox(height: 10),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MotivationalTipsScreen(mood: _detectedMood),
+                        ),
+                      );
+                    },
+                    child: Text('See More Tips for $_detectedMood'),
+                  ),
+                  const SizedBox(height: 16),
+                ],
+              ),
             Expanded(
               child: _filteredTips.isEmpty
-                  ? const Center(child: Text('No tips to display'))
+                  ? Center(
+                      child: Text(
+                        'No tips to display',
+                        style: TextStyle(color: _emptyStateTextColor),
+                      ),
+                    )
                   : ListView.builder(
                       itemCount: _filteredTips.length,
                       itemBuilder: (context, index) {
@@ -91,7 +121,10 @@ class _SentimentDemoScreenState extends State<SentimentDemoScreen> {
                         return Card(
                           child: Padding(
                             padding: const EdgeInsets.all(12.0),
-                            child: Text(tip['text'] ?? 'No text'),
+                            child: Text(
+                              tip['text'] ?? 'No text',
+                              style: TextStyle(color: _tipTextColor),
+                            ),
                           ),
                         );
                       },

@@ -17,6 +17,17 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
   String? _currentMood;
   List<int> _favoriteTipIds = [];
 
+  // Color constants for better maintainability
+  static const Color _appBarTextColor = Colors.white;
+  static const Color _tipTextColor = Colors.black87;
+  static const Color _emptyStateIconColor = Colors.grey;
+  static const Color _emptyStateTextColor = Colors.grey;
+  static const Color _chipTextColor = Colors.white;
+  static const Color _randomTipBadgeTextColor = Colors.white;
+  static const Color _favoriteIconColor = Colors.red;
+  static const Color _unfavoriteIconColor = Colors.grey;
+  static const Color _floatingActionButtonColor = Colors.amber;
+
   @override
   void initState() {
     super.initState();
@@ -164,7 +175,7 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
             : 'Motivational Tips'
         ),
         backgroundColor: _getAppBarColor(),
-        foregroundColor: Colors.white,
+        foregroundColor: _appBarTextColor,
         actions: [
           // RANDOM TIP BUTTON - ONLY SHOW WHEN VIEWING MOOD-SPECIFIC TIPS
           if (_currentMood != null)
@@ -198,19 +209,19 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
                       Icon(
                         Icons.sentiment_dissatisfied,
                         size: 64,
-                        color: Colors.grey[400],
+                        color: _emptyStateIconColor,
                       ),
                       const SizedBox(height: 16),
-                      const Text(
+                      Text(
                         'No tips available',
-                        style: TextStyle(fontSize: 18, color: Colors.grey),
+                        style: TextStyle(fontSize: 18, color: _emptyStateTextColor),
                       ),
                       const SizedBox(height: 8),
                       Text(
                         _currentMood != null 
                             ? 'for ${_currentMood!.toLowerCase()} mood'
                             : 'at the moment',
-                        style: const TextStyle(fontSize: 14, color: Colors.grey),
+                        style: TextStyle(fontSize: 14, color: _emptyStateTextColor),
                       ),
                       const SizedBox(height: 20),
                       ElevatedButton(
@@ -245,11 +256,11 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
                                   color: Colors.amber,
                                   borderRadius: BorderRadius.circular(12),
                                 ),
-                                child: const Text(
+                                child: Text(
                                   'RANDOM TIP',
                                   style: TextStyle(
                                     fontSize: 10,
-                                    color: Colors.white,
+                                    color: _randomTipBadgeTextColor,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -262,9 +273,10 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
                                 Expanded(
                                   child: Text(
                                     tip['text'] ?? 'No text available',
-                                    style: const TextStyle(
+                                    style: TextStyle(
                                       fontSize: 16,
                                       height: 1.4,
+                                      color: _tipTextColor,
                                     ),
                                   ),
                                 ),
@@ -272,7 +284,7 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
                                   IconButton(
                                     icon: Icon(
                                       isFavorite ? Icons.favorite : Icons.favorite_border,
-                                      color: isFavorite ? Colors.red : Colors.grey,
+                                      color: isFavorite ? _favoriteIconColor : _unfavoriteIconColor,
                                     ),
                                     onPressed: () => _toggleFavorite(tipId),
                                   ),
@@ -285,7 +297,7 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
                                   Chip(
                                     label: Text(
                                       tip['category'].toString().toUpperCase(),
-                                      style: const TextStyle(fontSize: 10, color: Colors.white),
+                                      style: TextStyle(fontSize: 10, color: _chipTextColor),
                                     ),
                                     backgroundColor: Colors.blue,
                                   ),
@@ -295,7 +307,7 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
                                   Chip(
                                     label: Text(
                                       _currentMood!.toUpperCase(),
-                                      style: const TextStyle(fontSize: 10, color: Colors.white),
+                                      style: TextStyle(fontSize: 10, color: _chipTextColor),
                                     ),
                                     backgroundColor: Colors.green,
                                   ),
@@ -312,7 +324,7 @@ class _MotivationalTipsScreenState extends State<MotivationalTipsScreen> {
           ? FloatingActionButton(
               onPressed: _getRandomTip,
               child: const Icon(Icons.casino),
-              backgroundColor: Colors.amber,
+              backgroundColor: _floatingActionButtonColor,
               tooltip: 'Get Random Tip',
             )
           : null,

@@ -5,6 +5,13 @@ import 'motivational_tips_screen.dart';
 class MoodSelectionScreen extends StatelessWidget {
   const MoodSelectionScreen({Key? key}) : super(key: key);
 
+  // Color constants for better maintainability
+  static const Color _appBarBackgroundColor = Colors.purple;
+  static const Color _appBarTextColor = Colors.white;
+  static const Color _titleTextColor = Colors.black87;
+  static const Color _moodCardTextColor = Colors.white;
+  static const Color _emojiTextColor = Colors.black; // Emoji typically don't need color changes
+
   void _navigateToMoodTips(BuildContext context, String mood) {
     Navigator.push(
       context,
@@ -19,17 +26,21 @@ class MoodSelectionScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('How are you feeling?'),
-        backgroundColor: Colors.purple,
-        foregroundColor: Colors.white,
+        backgroundColor: _appBarBackgroundColor,
+        foregroundColor: _appBarTextColor,
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
+            Text(
               'Select your current mood:',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                fontSize: 18, 
+                fontWeight: FontWeight.bold,
+                color: _titleTextColor,
+              ),
             ),
             const SizedBox(height: 20),
             Expanded(
@@ -85,14 +96,17 @@ class MoodSelectionScreen extends StatelessWidget {
               children: [
                 Text(
                   title.split(' ')[0], // Emoji
-                  style: const TextStyle(fontSize: 30),
+                  style: const TextStyle(
+                    fontSize: 30,
+                    color: _emojiTextColor,
+                  ),
                 ),
                 const SizedBox(height: 8),
                 Text(
                   title.split(' ')[1], // Mood text
                   style: const TextStyle(
                     fontSize: 16,
-                    color: Colors.white,
+                    color: _moodCardTextColor,
                     fontWeight: FontWeight.bold,
                   ),
                   textAlign: TextAlign.center,
